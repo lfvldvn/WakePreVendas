@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/novaAnalise.css">
+</head>
+
+<body>
+    <form>
+        <h2>Formulário de nova análise técnica</h2>
+        <h3>Dados Cadastrais</h3>
+        <!--ID-->
+        <label for="idPreVendas">ID Pre-Vendas</label>
+        <input type="text" id="idPreVendas" readonly>
+        <!--DATA-->
+        <label for="dataAnalise">Data da análise técnica</label>
+        <input type="text" id="dataAnalise" readonly>
+        <!--RESPONSÁVEL PRE-VENDAS-->
+        <label for="responsavelTecnico">Responsável Técnico</label>
+        <select id="responsavelTecnico" required>
+            <option value="">Selecione...</option>
+            <option value="Alef Barboza">Alef Barboza</option>
+            <option value="Guilherme Alencar">Guilherme Alencar</option>
+            <option value="Marcos Souza">Marcos Souza</option>
+        </select>
+        <!--NOME DA OPORTUNIDADE SF-->
+        <label for="nomeOportunidade">Nome da Oportunidade SF</label>
+        <input type="text" id="nomeOportunidade" required>
+        <!--TIPO DA OPORTUNIDADE-->
+        <label for="tipoOportunidade">Tipo da Oportunidade</label>
+        <select id="tipoOportunidade" onchange="clienteDaBase()" required>
+            <option value="">Selecione...</option>
+            <option value="Novo Cliente">Novo Cliente</option>
+            <option value="Cliente da Base">Cliente da Base</option>
+        </select>
+        <!--CLIENTE DA BASE-->
+        <div id="clienteDaBase" style="display: none;">
+            <label for="clienteDaBase">Selecione as opções</label>
+            DXP <input type="checkbox" id="dxp" class="checkbox" value="DXP">
+            Commerce <input type="checkbox" id="commerce" class="checkbox" value="Commerce">
+            Squid <input type="checkbox" id="squid" class="checkbox" value="Squid">
+        </div>
+        <!--PRODUTO-->
+        <label for="produto">Produto</label>
+        <select id="produto" required>
+            <option value="">Selecione...</option>
+            <option value="New Booking">New Booking</option>
+            <option value="UpSell">UpSell</option>
+            <option value="Renovação">Renovação</option>
+        </select>
+        <!--PROPRIETARIO COMERCIAL-->
+        <label for="proprietarioComercial">Proprietário Comercial</label>
+        <select id="proprietarioComercial" required>
+            <option value="">Selecione...</option>
+            <option value="Isabella Maria">Isabella Maria</option>
+            <option value="Nasser Silveira">Nasser Silveira</option>
+            <option value="Talita Veríssimo">Talita Veríssimo</option>
+            <option value="Victor Teiga">Victor Teiga</option>
+            <option value="Vinicius Nastri">Vinicius Nastri</option>
+        </select>
+        <!--SEGMENTO-->
+        <label for="segmento">Segmento</label>
+        <select id="segmento" required>
+            <option value="">Selecione...</option>
+            <option value="Ecommerce">Ecommerce</option>
+            <option value="B2B">B2B</option>
+            <option value="Banco">Banco</option>
+            <option value="Evento">Evento</option>
+            <option value="Locação de Veículos">Locação de Veículos</option>
+            <option value="Indústria">Indústria</option>
+        </select>
+        <!--PLATAFORMA-->
+        <label for="plataforma">Plataforma</label>
+        <select id="plataforma" onchange="outraPlataforma()" required>
+            <option value="">Selecione...</option>
+            <option value="Wake Commerce">Wake Commerce</option>
+            <option value="Vtex">Vtex</option>
+            <option value="Magento">Magento</option>
+            <option value="Shopify">Shopify</option>
+            <option value="Loja Integrada">Loja Integrada</option>
+            <option value="Nuvem Shop">Nuvem Shop</option>
+            <option value="Wix">Wix</option>
+            <option value="Outra">Outra</option>
+        </select>
+        <div id="outraPlataforma" style="display: none;">
+            <label for="outraPlataforma">Digite o nome da outra plataforma:</label>
+            <input type="text" id="outraPlataforma" placeholder="Ex.: Loja Virtual" required>
+        </div>
+        <!--URL-->
+        <label for="url">URL:</label>
+        <input type="text" id="url" placeholder="http://example.com" onblur="validarURL()">
+        <label for="outraURLCheckbox">Possui outra URL?</label>
+        <input type="checkbox" id="outraURLCheckbox" onchange="outraURL()">
+        <div id="outraURL" style="display: none;">
+            <label for="outraURLInput">Digite outra URL:</label>
+            <input type="text" id="outraURLInput" placeholder="http://example.com">
+        </div>
+        <!--FASE 2 DA ANÁLISE APÓS CADASTRO BÁSICO DE DADOS GERAIS-->
+        <h2>Evidências e análise</h2>
+        <h3>Requisitos mínimos e obrigatórios</h3>
+        <h4>Verificação realizada no DataLayer da aplicação conforme URL informada</h4>
+        <!--VERIFICAÇÃO DO ID DE TRANSAÇÃO DE PEDIDO FINALIZADO-->
+        <label for="transactionID">TransactionID</label>
+        <select id="transactionID">
+            <option value="">Selecione o resultado...</option>
+            <option value="Atende">Atende</option>
+            <option value="Não Atende">Não Atende</option>
+        </select>
+        <!--VERIFICAÇÃO DO VALOR TOTAL DE PEDIDO FINALIZADO-->
+        <label for="transactionTotal">TransactionTotal</label>
+        <select id="transactionTotal">
+            <option value="">Selecione o resultado...</option>
+            <option value="Atende">Atende</option>
+            <option value="Não Atende">Não Atende</option>
+        </select>
+        <!--ANEXO DO SCREENSHOT DE EVIDÊNCIA-->
+        <label for="anexo">Screenshot / Evidência</label>
+        <input type="file" accept=".png, .jpg, .jpeg, .gif" id="anexo" required>
+        <!--ANOTAÇÕES GERAIS DA EVIDÊNCIA-->
+        <label for="obsRequisitosMinimos">Observações</label>
+        <textarea id="obsRequisitosMinimos" rows="4" cols="70"></textarea>
+        <!--VERIFICAÇÃO OPTIN INTEGRADO-->
+        <h3>Optin Integrado (Dados de cliente)</h3>
+        <h4>Verificação realizada no DataLayer da aplicação conforme url informada</h4>
+        <!--DADO DE CLIENTE NOME-->
+        <label for="analiseNome">Nome:</label>
+        <select id="analiseNome">
+            <option value="">Selecione o resultado...</option>
+            <option value="Atende">Atende</option>
+            <option value="Não Atende">Não Atende</option>
+        </select>
+        <!--DADO DE CLIENTE EMAIL-->
+        <label for="analiseEmail">Email:</label>
+        <select id="analiseEmail">
+            <option value="">Selecione o resultado...</option>
+            <option value="Atende">Atende</option>
+            <option value="Não Atende">Não Atende</option>
+        </select>
+        <!--DADO DE CLIENTE TELEFONE-->
+        <label for="analiseTelefone">Telefone:</label>
+        <select id="analiseTelefone">
+            <option value="">Selecione o resultado...</option>
+            <option value="Atende">Atende</option>
+            <option value="Não Atende">Não Atende</option>
+        </select>
+        <!--ANOTAÇÕES GERAIS DA EVIDÊNCIA-->
+        <label for="obsOptin">Observações</label>
+        <textarea id="obsOptin" rows="4" cols="70"></textarea>
+        <!--AÇÕES FINAIS-->
+        
+    </form>
+    
+</body>
+
+</html>

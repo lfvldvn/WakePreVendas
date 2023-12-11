@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Análise</title>
+    <link rel="stylesheet" href="/css/novoAssessment.css">
+</head>
+
+<body>
+    <form>
+        <h2>Formulário de Assessment</h2>
+
+        <label for="idOportunidade">ID da Oportunidade:</label>
+        <input type="text" id="idOportunidade" readonly>
+
+        <label for="dataAnalise">Data da análise técnica</label>
+        <input type="text" id="dataAnalise" readonly>
+
+        <label for="responsavelTecnico">Responsável Técnico:</label>
+        <select id="responsavelTecnico">
+            <option value="">Selecione...</option>
+            <option value="Alef Barboza">Alef Barboza</option>
+            <option value="Guilherme Alencar">Guilherme Alencar</option>
+            <option value="Marcos Souza">Marcos Souza</option>
+        </select>
+
+        <label for="nomeOportunidade">Nome da Oportunidade:</label>
+        <input type="text" id="nomeOportunidade">
+
+        <label for="tipoOportunidade">Tipo da Oportunidade:</label>
+        <select id="tipoOportunidade" onchange="clienteDaBase()">
+            <option value="">Selecione...</option>
+            <option value="Novo Contrato">Novo Contrato</option>
+            <option value="Cliente da Base">Cliente da Base</option>
+        </select>
+
+        <div id="clienteDaBase" style="display: none;">
+            <label for="clienteDaBaseOpcoes">Selecione as opções:</label>
+            DXP<input type="checkbox" id="dxp" class="checkbox" value="DXP">
+            Commerce<input type="checkbox" id="commerce" class="checkbox" value="Commerce">
+            Squid<input type="checkbox" id="squid" class="checkbox" value="Squid">
+        </div>
+
+        <label for="divisao">Divisao:</label>
+        <select id="divisao">
+            <option value="">Selecione...</option>
+            <option value="Middle">Middle</option>
+            <option value="Enterprise">Enterprise</option>
+        </select>
+
+        <label for="tier">Tier:</label>
+        <select id="tier">
+            <option value="">Selecione...</option>
+            <option value="tierA">Tier A</option>
+            <option value="tierB">Tier B</option>
+            <option value="tierC">Tier C</option>
+        </select>
+
+        <label for="totalReceitaRecorrente">Total receita recorrente</label>
+        <input type="text" id="totalReceitaRecorrente" placeholder="R$ 00.000,00">
+
+        <h2>Detalhamento de Reunião Técnica para Blueprint</h2>
+
+        <label for="escopoDoProjeto">Escopo do Projeto</label>
+        <textarea id="observacoesAssessment1" rows="4" cols="70"></textarea>
+
+        <label for="objetivosExpectativa">Objetivos e Expectativa (Cliente)</label>
+        <textarea id="observacoesAssessment2" rows="4" cols="70"></textarea>
+
+        <label for="estrategiaDeExecucao">Estratégia de Execucao</label>
+        <textarea id="observacoesAssessment3" rows="4" cols="70"></textarea>
+
+        <label for="detalhamentoDadosPessoas">Detalhamento dados de pessoas</label>
+        <textarea id="observacoesAssessment4" rows="4" cols="70"></textarea>
+        <label for="detalhamentoDadosPedidos">Detalhamento dados de pedidos (LF | ecom)</label>
+        <textarea id="observacoesAssessment5" rows="4" cols="70"></textarea>
+        <label for="detalhamentoDadosProdutos">Detalhamento dados de produtos</label>
+        <textarea id="observacoesAssessment6" rows="4" cols="70"></textarea>
+        <label for="detalhamentoDadosComportamentais">Detalhamento dados comportamentais</label>
+        <textarea id="observacoesAssessment7" rows="4" cols="70"></textarea>
+
+        <label for="origemDados">Origem de Dados (Legado+integração)</label>
+        <input type="text" id="origemDados">
+
+        <label for="tiposDeIntegracoes">Tipos de integracoes para carga dos dados</label>
+        <input type="text" id="tiposDeIntegracoes">
+
+        <label for="possuiTI">Possui TI?</label>
+        <select id="possuiTI">
+            <option value="">Selecione...</option>
+            <option value="interno">Interno</option>
+            <option value="agencia">Agência</option>
+            <option value="parceiro">Parceiro</option>
+            <option value="Não">Não</option>
+        </select>
+        <br>
+        <span>Canais ativados</span>
+        <div id="clienteCanais">
+            <h4>Seleciona os canais:</h4>
+            <label for="clienteCanaisEmail">
+                Email<input type="checkbox" id="clienteCanaisEmail" class="checkbox" value="Email">
+            </label>
+            <label for="clienteCanaisSMS">
+                SMS<input type="checkbox" id="clienteCanaisSMS" class="checkbox" value="SMS">
+            </label>
+            <label for="clienteCanaisOnSite">
+                OnSite<input type="checkbox" id="clienteCanaisOnSite" class="checkbox" value="OnSite">
+            </label>
+            <label for="clienteCanaisWhatsApp">
+                WhatsApp<input type="checkbox" id="clienteCanaisWhatsApp" class="checkbox" value="WhatsApp">
+            </label>
+        </div>
+
+        <h2>Integrações</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Integrações</th>
+                    <th>Atividade</th>
+                    <th>Responsável</th>
+                    <th>Observação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="4">BeTag</td>
+                    <td>BeTag</td>
+                    <td>
+                        <select id="selectBeTag1">
+                            <option value="wake">Wake</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="parceiro">Parceiro</option>
+                        </select>
+                    </td>
+                    <td><textarea id="obsIntegracoesBeTag" rows="4"></textarea></td>
+                </tr>
+                <tr>
+                    <td>SDK Pedido</td>
+                    <td>
+                        <select id="selectBeTag2">
+                            <option value="wake">Wake</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="parceiro">Parceiro</option>
+                        </select>
+                    </td>
+                    <td><textarea id="obsIntegracoesSDK" rows="4"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Optin Integrado</td>
+                    <td>
+                        <select id="selectBeTag3">
+                            <option value="wake">Wake</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="parceiro">Parceiro</option>
+                        </select>
+                    </td>
+                    <td><textarea id="obsIntegracoesOptin" rows="4"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Comportamental BTG</td>
+                    <td>
+                        <select id="selectBeTag4">
+                            <option value="wake">Wake</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="parceiro">Parceiro</option>
+                        </select>
+                    </td>
+                    <td><textarea id="obsIntegracoesComportamental" rows="4"></textarea></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Pessoas</td>
+                    <td>Workflow</td>
+                    <td>
+                        <select id="selectPessoas1">
+                            <option value="wake">Wake</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="parceiro">Parceiro</option>
+                        </select>
+                    </td>
+                    <td><textarea id="obsIntegracoesWorkflow" rows="4"></textarea></td>
+                </tr>
+                <tr>
+                    <td>API Base Wake</td>
+                    <td>
+                        <select id="selectPessoas2">
+                            <option value="wake">Wake</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="parceiro">Parceiro</option>
+                        </select>
+                    </td>
+                    <td><textarea id="obsIntegracoesAPI" rows="4"></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Atuação Pré-Vendas (Solutions Engineer)</h2>
+        <h4>Análise Técnica</h4>
+        <label for="quantidadeHoras1">Hrs</label>
+        <input type="number" id="quantidadeHoras1" name="quantidadeHoras" required>
+        <label for="dataAtividade1">Data da atividade</label>
+        <input type="date" id="dataAtividade1" name="dataAtividade" required>
+
+        <h4>Alinhamento Técnico</h4>
+        <label for="quantidadeHoras2">Hrs</label>
+        <input type="number" id="quantidadeHoras2" name="quantidadeHoras" required>
+        <label for="dataAtividade2">Data da atividade</label>
+        <input type="date" id="dataAtividade2" name="dataAtividade" required>
+
+        <h4>Assessment</h4>
+        <label for="quantidadeHoras3">Hrs</label>
+        <input type="number" id="quantidadeHoras3" name="quantidadeHoras" required>
+        <label for="dataAtividade3">Data da atividade</label>
+        <input type="date" id="dataAtividade3" name="dataAtividade" required>
+
+        <h4>Blueprint</h4>
+        <label for="quantidadeHoras4">Hrs</label>
+        <input type="number" id="quantidadeHoras4" name="quantidadeHoras" required>
+        <label for="dataAtividade4">Data da atividade</label>
+        <input type="date" id="dataAtividade4" name="dataAtividade" required>
+
+        <h4>Precificação</h4>
+        <label for="quantidadeHoras5">Hrs</label>
+        <input type="number" id="quantidadeHoras5" name="quantidadeHoras" required>
+        <label for="dataAtividade5">Data da atividade</label>
+        <input type="date" id="dataAtividade5" name="dataAtividade" required>
+
+        <h4>Proposta</h4>
+        <label for="quantidadeHoras6">Hrs</label>
+        <input type="number" id="quantidadeHoras6" name="quantidadeHoras" required>
+        <label for="dataAtividade6">Data da atividade</label>
+        <input type="date" id="dataAtividade6" name="dataAtividade" required>
+
+        <button type="button" id="salvarAssessmentBtn" onclick="salvarAssessment()">Salvar Assessment</button>
+        <button type="button" onclick="exportarPDF()">Exportar PDF</button>
+    </form>
+</body>
+<script src="https://cdnjs.clowdflare.com/ajax/lib/jspdf/2.4/jspdf/umd/min.js"></script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerar Imagem com JS</title>
+  <link rel="stylesheet" href="/css/gerarBlueprint.css">
+</head>
+<body>
+
+  <form id="myForm">
+    <label for="plataforma">Qual a plataforma de ecommerce?</label>
+    <select id="plataforma" name="plataforma" required>
+      <option value="">Selecione...</option>
+      <option value="Wake Commerce">Wake Commerce</option>
+      <option value="Vtex">Vtex</option>
+      <option value="Magento">Magento</option>
+      <option value="Shopify">Shopify</option>
+      <option value="Loja Integrada">Loja Integrada</option>
+      <option value="Nuvem Shop">Nuvem Shop</option>
+      <option value="Wix">Wix</option>
+    </select>
+
+    <label for="integrarLojaFisica">Vai integrar Loja Física?</label>
+    <select id="integrarLojaFisica" name="integrarLojaFisica" required>
+      <option value="">Selecione...</option>
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+    </select>
+
+    <label for="possuiApp">Possui APP?</label>
+    <select id="possuiApp" name="possuiApp" required>
+      <option value="">Selecione...</option>
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+    </select>
+
+    <label for="origemDadosLegado">Qual a origem dos dados legado?</label>
+    <select id="origemDadosLegado" name="origemDadosLegado" required>
+      <option value="">Selecione...</option>
+      <option value="Salesforce">Salesforce</option>
+      <option value="HubSpot CRM">HubSpot CRM</option>
+      <option value="Zoho CRM">Zoho CRM</option>
+      <option value="Microsoft Dynamics 365">Microsoft Dynamics 365</option>
+      <option value="Pipedrive">Pipedrive</option>
+      <option value="Freshsales">Freshsales</option>
+      <option value="Bitrix24">Bitrix24</option>
+      <option value="Insightly">Insightly</option>
+      <option value="SugarCRM">SugarCRM</option>
+      <option value="Keap">Keap (anteriormente Infusionsoft)</option>
+    </select>
+
+    <label for="erpUtilizado">Qual o ERP utilizado?</label>
+    <select id="erpUtilizado" name="erpUtilizado" required>
+      <option value="">Selecione...</option>
+      <option value="SAP S/4HANA">SAP S/4HANA</option>
+      <option value="Oracle ERP Cloud">Oracle ERP Cloud</option>
+      <option value="Microsoft Dynamics 365 for Finance and Operations">Microsoft Dynamics 365 for Finance and Operations</option>
+      <option value="NetSuite">NetSuite</option>
+      <option value="IFS Applications">IFS Applications</option>
+      <option value="Epicor ERP">Epicor ERP</option>
+      <option value="Infor CloudSuite">Infor CloudSuite</option>
+      <option value="Acumatica">Acumatica</option>
+      <option value="SYSPRO">SYSPRO</option>
+      <option value="Sage X3">Sage X3</option>
+    </select>
+
+    <button type="button" onclick="gerarImagem()">Gerar Imagem</button>
+  </form>
+
+  <canvas id="canvas" style="display: none;"></canvas>
+  <img id="outputImage" alt="Imagem Gerada">
+
+</body>
+</html>
